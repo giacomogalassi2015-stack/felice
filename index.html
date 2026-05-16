@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO Meta Tags -->
+  <title>Da Felice – Affittacamere a Equi Terme, Lunigiana Toscana</title>
+  <meta name="description" content="Rilassati alle terme e scopri le Grotte di Equi. Da Felice ti accoglie nel cuore della Lunigiana con calore autentico e natura incontaminata." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Affittacamere Da Felice" />
+  <meta name="keywords" content="affittacamere Equi Terme, terme Lunigiana, Grotte di Equi, Alpi Apuane, bed and breakfast Toscana, soggiorno natura" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Da Felice – Affittacamere a Equi Terme" />
+  <meta property="og:description" content="Benvenuti nel cuore della Lunigiana. Terme, grotte, monti e un'accoglienza che sa di casa." />
+  <meta property="og:image" content="https://placehold.co/1200x630/2d5a27/ffffff?text=Da+Felice+%E2%80%93+Equi+Terme" />
+  <meta property="og:url" content="https://www.dafelice-equiterme.it" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="it_IT" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    /* ─── CSS Variables ─────────────────────────────────────────── */
+    :root {
+      --verde:      #2d5a27;
+      --verde-light:#4a7c44;
+      --verde-pale: #e8f0e7;
+      --acqua:      #4a9bb5;
+      --acqua-light:#6db8cf;
+      --acqua-pale: #dff0f6;
+      --pietra:     #6b6560;
+      --pietra-dark:#3e3a37;
+      --pietra-pale:#f2efec;
+      --avorio:     #faf8f4;
+      --bianco:     #ffffff;
+      --testo:      #2c2825;
+      --r: 0.6rem;
+      --shadow: 0 4px 24px rgba(45,90,39,0.12);
+      --transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    /* ─── Reset & Base ──────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      color: var(--testo);
+      background: var(--avorio);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+      line-height: 1.25;
+    }
+
+    /* ─── Utility ───────────────────────────────────────────────── */
+    .container {
+      width: min(90%, 1100px);
+      margin-inline: auto;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--acqua);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      color: var(--verde);
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: var(--pietra);
+      max-width: 600px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 2rem;
+      border-radius: 50px;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: var(--transition);
+    }
+
+    .btn-primary {
+      background: var(--verde);
+      color: var(--bianco);
+    }
+    .btn-primary:hover {
+      background: var(--verde-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(45,90,39,0.3);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--verde);
+      border-color: var(--verde);
+    }
+    .btn-outline:hover {
+      background: var(--verde);
+      color: var(--bianco);
+      transform: translateY(-2px);
+    }
+
+    .btn-acqua {
+      background: var(--acqua);
+      color: var(--bianco);
+    }
+    .btn-acqua:hover {
+      background: var(--acqua-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(74,155,181,0.3);
+    }
+
+    /* ─── Decorative divider ────────────────────────────────────── */
+    .leaf-divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .leaf-divider::before,
+    .leaf-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--verde-light));
+    }
+    .leaf-divider::after {
+      background: linear-gradient(to left, transparent, var(--verde-light));
+    }
+    .leaf-divider span {
+      color: var(--verde-light);
+      font-size: 1.2rem;
+    }
+
+    /* ─── Header / Nav ──────────────────────────────────────────── */
+    #header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 999;
+      padding: 1rem 0;
+      transition: var(--transition);
+    }
+
+    #header.scrolled {
+      background: rgba(250,248,244,0.96);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 20px rgba(45,90,39,0.12);
+      padding: 0.6rem 0;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--bianco);
+      transition: var(--transition);
+      line-height: 1;
+    }
+    .logo span {
+      color: var(--acqua-light);
+    }
+
+    #header.scrolled .logo { color: var(--verde); }
+    #header.scrolled .logo span { color: var(--acqua); }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.9);
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 2px;
+      background: var(--acqua-light);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:hover { color: var(--acqua-light); }
+
+    #header.scrolled .nav-links a { color: var(--pietra-dark); }
+    #header.scrolled .nav-links a:hover { color: var(--verde); }
+    #header.scrolled .nav-links a::after { background: var(--verde); }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 26px; height: 2px;
+      background: var(--bianco);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+    #header.scrolled .hamburger span { background: var(--verde); }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--verde);
+      z-index: 998;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+    }
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--bianco);
+      transition: var(--transition);
+    }
+    .mobile-menu a:hover { color: var(--acqua-light); }
+
+    /* ─── Hero ──────────────────────────────────────────────────── */
+    #hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(160deg, rgba(45,90,39,0.72) 0%, rgba(74,155,181,0.45) 100%),
+        url('https://placehold.co/1600x1000/4a7c44/2d5a27?text=Equi+Terme+–+Lunigiana') center/cover no-repeat;
+      transform: scale(1.04);
+      transition: transform 8s ease-out;
+    }
+    .hero-bg.loaded { transform: scale(1); }
+
+    /* Texture overlay */
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 8rem 0 6rem;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: var(--bianco);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      margin-bottom: 1.5rem;
+    }
+
+    #hero h1 {
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      color: var(--bianco);
+      max-width: 760px;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.25);
+      margin-bottom: 1.2rem;
+    }
+
+    #hero h1 em {
+      font-style: italic;
+      color: var(--acqua-light);
+    }
+
+    .hero-description {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.88);
+      max-width: 500px;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(255,255,255,0.6);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      animation: bounce 2s infinite;
+    }
+    .hero-scroll i { font-size: 1rem; }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ─── Chi Siamo ─────────────────────────────────────────────── */
+    #chi-siamo {
+      padding: 6rem 0;
+      background: var(--avorio);
+    }
+
+    .chi-siamo-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .chi-siamo-img {
+      position: relative;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .chi-siamo-img img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+    }
+
+    .img-badge {
+      position: absolute;
+      bottom: 1.5rem; right: 1.5rem;
+      background: var(--verde);
+      color: var(--bianco);
+      padding: 0.8rem 1.4rem;
+      border-radius: var(--r);
+      font-family: 'Playfair Display', serif;
+      font-size: 0.9rem;
+      line-height: 1.3;
+      text-align: center;
+    }
+    .img-badge strong { display: block; font-size: 1.8rem; }
+
+    .chi-siamo-text p {
+      color: var(--pietra);
+      margin-bottom: 1rem;
+    }
+
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      margin-top: 1.5rem;
+    }
+
+    .feature-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-weight: 400;
+      color: var(--testo);
+    }
+
+    .feature-list li i {
+      color: var(--verde);
+      width: 1.2rem;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    /* ─── Camere & Servizi ──────────────────────────────────────── */
+    #camere {
+      padding: 6rem 0;
+      background: var(--verde-pale);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .section-header .section-subtitle { margin-inline: auto; }
+
+    .camere-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .camera-card {
+      background: var(--bianco);
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+    .camera-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(45,90,39,0.18);
+    }
+
+    .camera-img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+    }
+
+    .camera-body {
+      padding: 1.5rem;
+    }
+
+    .camera-body h3 {
+      font-size: 1.25rem;
+      color: var(--verde);
+      margin-bottom: 0.5rem;
+    }
+
+    .camera-body p {
+      font-size: 0.95rem;
+      color: var(--pietra);
+      margin-bottom: 1rem;
+    }
+
+    .camera-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: var(--verde-pale);
+      color: var(--verde);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.3rem 0.75rem;
+      border-radius: 50px;
+    }
+
+    /* Servizi strip */
+    .servizi-strip {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .servizio-item {
+      background: var(--bianco);
+      border-radius: var(--r);
+      padding: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      box-shadow: 0 2px 12px rgba(45,90,39,0.08);
+      transition: var(--transition);
+    }
+    .servizio-item:hover {
+      background: var(--verde);
+      color: var(--bianco);
+    }
+    .servizio-item:hover .servizio-icon { background: rgba(255,255,255,0.2); color: var(--bianco); }
+    .servizio-item:hover .servizio-label { color: var(--bianco); }
+
+    .servizio-icon {
+      width: 2.8rem; height: 2.8rem;
+      background: var(--verde-pale);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--verde);
+      font-size: 1rem;
+      flex-shrink: 0;
+      transition: var(--transition);
+    }
+
+    .servizio-label {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--testo);
+      transition: var(--transition);
+    }
+
+    /* ─── Il Territorio ─────────────────────────────────────────── */
+    #territorio {
+      padding: 6rem 0;
+      background: var(--avorio);
+    }
+
+    .territorio-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .attrazione-card {
+      position: relative;
+      border-radius: 1rem;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+    }
+
+    .attrazione-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .attrazione-card:hover img { transform: scale(1.06); }
+
+    .attrazione-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(45,90,39,0.85) 0%, transparent 55%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+    }
+
+    .attrazione-overlay .tag {
+      background: var(--acqua);
+      color: var(--bianco);
+      align-self: flex-start;
+      margin-bottom: 0.6rem;
+    }
+
+    .attrazione-overlay h3 {
+      font-size: 1.35rem;
+      color: var(--bianco);
+      margin-bottom: 0.4rem;
+    }
+
+    .attrazione-overlay p {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .attrazione-card.featured {
+      aspect-ratio: unset;
+      min-height: 400px;
+    }
+
+    /* ─── Contatti ──────────────────────────────────────────────── */
+    #contatti {
+      padding: 6rem 0;
+      background: var(--pietra-dark);
+      color: var(--bianco);
+    }
+
+    #contatti .section-label { color: var(--acqua-light); }
+    #contatti .section-title { color: var(--bianco); }
+
+    .contatti-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .contatti-info h3 {
+      font-size: 1.2rem;
+      color: var(--acqua-light);
+      margin-bottom: 1.5rem;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .info-item i {
+      color: var(--acqua);
+      width: 1.2rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+
+    .info-item a {
+      color: rgba(255,255,255,0.8);
+      transition: var(--transition);
+    }
+    .info-item a:hover { color: var(--acqua-light); }
+
+    .info-item span {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.95rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 0.8rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-links a {
+      width: 2.5rem; height: 2.5rem;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--bianco);
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+    .social-links a:hover {
+      background: var(--acqua);
+      transform: translateY(-3px);
+    }
+
+    /* Form */
+    .contatti-form {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 1rem;
+      padding: 2rem;
+    }
+
+    .contatti-form h3 {
+      font-size: 1.2rem;
+      color: var(--acqua-light);
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: var(--r);
+      padding: 0.75rem 1rem;
+      color: var(--bianco);
+      font-family: 'Lato', sans-serif;
+      font-size: 0.95rem;
+      transition: var(--transition);
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--acqua);
+      background: rgba(74,155,181,0.1);
+      box-shadow: 0 0 0 3px rgba(74,155,181,0.15);
+    }
+
+    .form-group select option { background: var(--pietra-dark); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    /* Mappa placeholder */
+    .mappa-box {
+      margin-top: 2rem;
+      border-radius: var(--r);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .mappa-box iframe {
+      width: 100%;
+      height: 280px;
+      border: none;
+      display: block;
+      filter: grayscale(30%) sepia(20%);
+    }
+
+    /* ─── Footer ────────────────────────────────────────────────── */
+    footer {
+      background: #1e1c19;
+      padding: 2rem 0;
+      text-align: center;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--bianco);
+      margin-bottom: 0.3rem;
+    }
+    .footer-logo span { color: var(--acqua); }
+
+    .footer-copy {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 0.5rem;
+    }
+
+    .footer-links a {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      transition: var(--transition);
+    }
+    .footer-links a:hover { color: var(--acqua-light); }
+
+    /* ─── Floating CTA ──────────────────────────────────────────── */
+    .floating-cta {
+      position: fixed;
+      bottom: 1.5rem; right: 1.5rem;
+      z-index: 990;
+      display: none;
+    }
+    .floating-cta.visible { display: block; }
+
+    .floating-cta a {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--verde);
+      color: var(--bianco);
+      padding: 0.8rem 1.4rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      box-shadow: 0 6px 24px rgba(45,90,39,0.4);
+      transition: var(--transition);
+    }
+    .floating-cta a:hover {
+      background: var(--verde-light);
+      transform: translateY(-3px);
+    }
+
+    /* ─── Responsive: Tablet ────────────────────────────────────── */
+    @media (min-width: 640px) {
+      .camere-grid { grid-template-columns: repeat(2, 1fr); }
+      .servizi-strip { grid-template-columns: repeat(3, 1fr); }
+      .chi-siamo-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ─── Responsive: Desktop ───────────────────────────────────── */
+    @media (min-width: 900px) {
+      .hamburger { display: none !important; }
+      .nav-links { display: flex !important; }
+
+      .camere-grid { grid-template-columns: repeat(3, 1fr); }
+      .servizi-strip { grid-template-columns: repeat(4, 1fr); }
+
+      .territorio-layout {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+      }
+      .attrazione-card.featured {
+        grid-row: span 2;
+      }
+
+      .contatti-grid { grid-template-columns: 1fr 1fr; }
+
+      .form-row { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 899px) {
+      .hamburger { display: flex; }
+      .nav-links { display: none; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    /* ─── Fade-in on scroll ─────────────────────────────────────── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ HEADER ══════════════════════════════════════════════════ -->
+  <header id="header">
+    <div class="container">
+      <nav>
+        <a href="#hero" class="logo">Da <span>Felice</span></a>
+
+        <ul class="nav-links">
+          <li><a href="#chi-siamo">Chi Siamo</a></li>
+          <li><a href="#camere">Camere</a></li>
+          <li><a href="#territorio">Dintorni</a></li>
+          <li><a href="#contatti">Contatti</a></li>
+        </ul>
+
+        <button class="hamburger" id="hamburger" aria-label="Apri menu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#chi-siamo" class="mobile-link">Chi Siamo</a>
+    <a href="#camere" class="mobile-link">Camere</a>
+    <a href="#territorio" class="mobile-link">Dintorni</a>
+    <a href="#contatti" class="mobile-link">Contatti</a>
+  </div>
+
+  <!-- ═══ HERO ═════════════════════════════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-bg" id="heroBg"></div>
+
+    <div class="container hero-content">
+      <div class="hero-badge">
+        <i class="fa-solid fa-location-dot"></i>
+        Equi Terme · Lunigiana · Toscana
+      </div>
+
+      <h1>Il tuo rifugio nel cuore<br/>delle <em>Alpi Apuane</em></h1>
+
+      <p class="hero-description">
+        Acque termali, grotte millenarie e boschi silenziosi ti aspettano. Noi ti aspettiamo con una stanza calda, colazioni genuine e un sorriso vero.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#contatti" class="btn btn-acqua">
+          <i class="fa-regular fa-calendar-check"></i>
+          Richiedi Disponibilità
+        </a>
+        <a href="#chi-siamo" class="btn" style="color:#fff; border-color:rgba(255,255,255,0.5);">
+          Scopri di più
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <span>Scorri</span>
+      <i class="fa-solid fa-chevron-down"></i>
+    </div>
+  </section>
+
+  <!-- ═══ CHI SIAMO ════════════════════════════════════════════════ -->
+  <section id="chi-siamo">
+    <div class="container">
+      <div class="chi-siamo-grid">
+
+        <div class="chi-siamo-img fade-in">
+          <img
+            src="https://placehold.co/800x600/4a7c44/ffffff?text=Affittacamere+Da+Felice"
+            alt="Interno accogliente dell'Affittacamere Da Felice a Equi Terme"
+            loading="lazy"
+          />
+          <div class="img-badge">
+            <strong>20+</strong>
+            anni di ospitalità
+          </div>
+        </div>
+
+        <div class="chi-siamo-text fade-in">
+          <span class="section-label">Chi Siamo</span>
+          <h2 class="section-title">Un'accoglienza<br/>che sa di casa</h2>
+
+          <div class="leaf-divider"><span>❧</span></div>
+
+          <p>
+            Benvenuti all'Affittacamere <strong>Da Felice</strong>, un piccolo angolo di pace nel borgo antico di Equi Terme, incastonato tra i boschi lussureggianti della Lunigiana e le vette delle Alpi Apuane.
+          </p>
+          <p>
+            Siamo una famiglia che da oltre vent'anni apre le porte di casa propria agli ospiti che cercano qualcosa di autentico: non solo un letto, ma un'esperienza vera, fatta di profumi di cucina casalinga, silenzi pieni di natura e chiacchierate davanti a un bicchiere di vino locale.
+          </p>
+          <p>
+            Qui non troverete freddezza alberghiera. Troverete Felice — e con lui, tutto il calore di chi considera ogni ospite un amico.
+          </p>
+
+          <ul class="feature-list">
+            <li><i class="fa-solid fa-check-circle"></i> Colazione con prodotti locali e stagionali</li>
+            <li><i class="fa-solid fa-check-circle"></i> Consiglio personalizzato su escursioni e itinerari</li>
+            <li><i class="fa-solid fa-check-circle"></i> Parcheggio gratuito e Wi-Fi incluso</li>
+            <li><i class="fa-solid fa-check-circle"></i> Check-in flessibile su richiesta</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CAMERE & SERVIZI ═════════════════════════════════════════ -->
+  <section id="camere">
+    <div class="container">
+
+      <div class="section-header fade-in">
+        <span class="section-label">Le Camere</span>
+        <h2 class="section-title">Comfort autentico,<br/>vista mozzafiato</h2>
+        <p class="section-subtitle">Ogni camera è pensata per farti sentire a casa, con tutto il necessario per un soggiorno rigenerante tra monti e acque termali.</p>
+      </div>
+
+      <div class="camere-grid">
+
+        <!-- Camera 1 -->
+        <div class="camera-card fade-in">
+          <img
+            class="camera-img"
+            src="https://placehold.co/600x338/2d5a27/ffffff?text=Camera+Bosco"
+            alt="Camera Bosco con vista sulla foresta"
+            loading="lazy"
+          />
+          <div class="camera-body">
+            <h3>Camera Bosco</h3>
+            <p>Svegliarsi con la vista sul bosco di castagni. Silenziosa, avvolta nel verde, ideale per chi cerca pace profonda.</p>
+            <div class="camera-tags">
+              <span class="tag"><i class="fa-solid fa-tv"></i> TV</span>
+              <span class="tag"><i class="fa-solid fa-shower"></i> Bagno privato</span>
+              <span class="tag"><i class="fa-solid fa-mountain"></i> Vista foresta</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Camera 2 -->
+        <div class="camera-card fade-in">
+          <img
+            class="camera-img"
+            src="https://placehold.co/600x338/4a9bb5/ffffff?text=Camera+Acqua"
+            alt="Camera Acqua con vista sulle terme di Equi"
+            loading="lazy"
+          />
+          <div class="camera-body">
+            <h3>Camera Acqua</h3>
+            <p>Affacciata sul torrente Civasola, questa camera porta il suono rilassante dell'acqua direttamente nella tua stanza.</p>
+            <div class="camera-tags">
+              <span class="tag"><i class="fa-solid fa-tv"></i> TV</span>
+              <span class="tag"><i class="fa-solid fa-shower"></i> Bagno privato</span>
+              <span class="tag"><i class="fa-solid fa-water"></i> Vista torrente</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Camera 3 -->
+        <div class="camera-card fade-in">
+          <img
+            class="camera-img"
+            src="https://placehold.co/600x338/6b6560/ffffff?text=Camera+Pietra"
+            alt="Camera Pietra con soffitto in pietra originale del borgo"
+            loading="lazy"
+          />
+          <div class="camera-body">
+            <h3>Camera Pietra</h3>
+            <p>Le mura in pietra viva del borgo storico raccontano secoli di storia. Il rustico incontro con il comfort moderno.</p>
+            <div class="camera-tags">
+              <span class="tag"><i class="fa-solid fa-tv"></i> TV</span>
+              <span class="tag"><i class="fa-solid fa-shower"></i> Bagno privato</span>
+              <span class="tag"><i class="fa-solid fa-mountain-sun"></i> Vista Apuane</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Servizi strip -->
+      <div class="servizi-strip fade-in">
+        <div class="servizio-item">
+          <div class="servizio-icon"><i class="fa-solid fa-wifi"></i></div>
+          <span class="servizio-label">Wi-Fi Gratuito</span>
+        </div>
+        <div class="servizio-item">
+          <div class="servizio-icon"><i class="fa-solid fa-mug-hot"></i></div>
+          <span class="servizio-label">Colazione inclusa</span>
+        </div>
+        <div class="servizio-item">
+          <div class="servizio-icon"><i class="fa-solid fa-square-parking"></i></div>
+          <span class="servizio-label">Parcheggio</span>
+        </div>
+        <div class="servizio-item">
+          <div class="servizio-icon"><i class="fa-solid fa-paw"></i></div>
+          <span class="servizio-label">Animali ammessi</span>
+        </div>
+        <div class="servizio-item">
+          <div class="servizio-icon"><i class="fa-solid fa-snowflake"></i></div>
+          <span class="servizio-label">Aria condizionata</span>
+        </div>
+        <div class="servizio-item">
+          <div class="servizio-icon"><i class="fa-solid fa-shirt"></i></div>
+          <span class="servizio-label">Cambio biancheria</span>
+        </div>
+        <div class="servizio-item">
+          <div class="servizio-icon"><i class="fa-solid fa-map"></i></div>
+          <span class="servizio-label">Info escursioni</span>
+        </div>
+        <div class="servizio-item">
+          <div class="servizio-icon"><i class="fa-solid fa-clock"></i></div>
+          <span class="servizio-label">Check-in flessibile</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ TERRITORIO ═══════════════════════════════════════════════ -->
+  <section id="territorio">
+    <div class="container">
+
+      <div class="section-header fade-in">
+        <span class="section-label">Il Territorio</span>
+        <h2 class="section-title">Equi Terme e dintorni:<br/>la natura ti chiama</h2>
+        <p class="section-subtitle">A pochi passi dalla porta di casa troverai esperienze uniche che rendono la Lunigiana un luogo fuori dal tempo.</p>
+      </div>
+
+      <div class="territorio-layout">
+
+        <!-- Featured -->
+        <div class="attrazione-card featured fade-in">
+          <img
+            src="https://placehold.co/700x700/1a3d18/8bc34a?text=Grotte+di+Equi"
+            alt="Le suggestive Grotte di Equi Terme in Lunigiana"
+            loading="lazy"
+          />
+          <div class="attrazione-overlay">
+            <span class="tag"><i class="fa-solid fa-star"></i> Da non perdere</span>
+            <h3>Grotte di Equi</h3>
+            <p>Un viaggio nel sottosuolo tra stalattiti millenarie, corsi d'acqua sotterranei e meraviglie geologiche a due passi dall'affittacamere.</p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="attrazione-card fade-in">
+          <img
+            src="https://placehold.co/600x400/4a9bb5/ffffff?text=Terme+di+Equi"
+            alt="Le acque termali di Equi Terme per il benessere totale"
+            loading="lazy"
+          />
+          <div class="attrazione-overlay">
+            <span class="tag"><i class="fa-solid fa-hot-tub-person"></i> Benessere</span>
+            <h3>Terme di Equi</h3>
+            <p>Acque sulfuree naturali dalle proprietà terapeutiche, perfette per rigenerare corpo e mente dopo una giornata in montagna.</p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="attrazione-card fade-in">
+          <img
+            src="https://placehold.co/600x400/2d5a27/c8e6c9?text=Alpi+Apuane"
+            alt="Trekking e natura nel Parco delle Alpi Apuane"
+            loading="lazy"
+          />
+          <div class="attrazione-overlay">
+            <span class="tag"><i class="fa-solid fa-person-hiking"></i> Outdoor</span>
+            <h3>Alpi Apuane & Trekking</h3>
+            <p>Il Parco Regionale delle Alpi Apuane offre sentieri per tutti i livelli, con panorami che spaziano dal mare alle cime innevate.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ CONTATTI ═════════════════════════════════════════════════ -->
+  <section id="contatti">
+    <div class="container">
+
+      <div class="section-header fade-in">
+        <span class="section-label">Contatti</span>
+        <h2 class="section-title">Vieni a trovarci</h2>
+        <p class="section-subtitle" style="color:rgba(255,255,255,0.65); margin-inline:auto;">Scrivi o chiama: saremo felici di rispondere a ogni tua domanda e aiutarti a pianificare il soggiorno perfetto.</p>
+      </div>
+
+      <div class="contatti-grid">
+
+        <!-- Info -->
+        <div class="contatti-info fade-in">
+          <h3>Dove siamo</h3>
+
+          <div class="info-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Via delle Terme, 12 — 54022 Equi Terme (MS), Toscana, Italia</span>
+          </div>
+
+          <div class="info-item">
+            <i class="fa-solid fa-phone"></i>
+            <a href="tel:+390187123456">+39 0187 123 456</a>
+          </div>
+
+          <div class="info-item">
+            <i class="fa-brands fa-whatsapp"></i>
+            <a href="https://wa.me/393331234567">+39 333 123 4567 (WhatsApp)</a>
+          </div>
+
+          <div class="info-item">
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:info@dafelice-equiterme.it">info@dafelice-equiterme.it</a>
+          </div>
+
+          <div class="info-item">
+            <i class="fa-solid fa-clock"></i>
+            <span>Check-in: 14:00–20:00 &nbsp;|&nbsp; Check-out: entro le 11:00</span>
+          </div>
+
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="TripAdvisor"><i class="fa-brands fa-tripadvisor"></i></a>
+          </div>
+
+          <!-- Mappa placeholder -->
+          <div class="mappa-box">
+            <iframe
+              src="https://www.openstreetmap.org/export/embed.html?bbox=10.09,44.17,10.11,44.19&layer=mapnik&marker=44.18,10.10"
+              title="Mappa Equi Terme"
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+
+        <!-- Modulo -->
+        <div class="contatti-form fade-in">
+          <h3>Richiedi disponibilità</h3>
+
+          <form action="#" method="POST" novalidate>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" placeholder="Mario" required />
+              </div>
+              <div class="form-group">
+                <label for="cognome">Cognome</label>
+                <input type="text" id="cognome" name="cognome" placeholder="Rossi" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="mario@esempio.it" required />
+            </div>
+
+            <div class="form-group">
+              <label for="telefono">Telefono (opzionale)</label>
+              <input type="tel" id="telefono" name="telefono" placeholder="+39 333 000 0000" />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="arrivo">Data arrivo</label>
+                <input type="date" id="arrivo" name="arrivo" required />
+              </div>
+              <div class="form-group">
+                <label for="partenza">Data partenza</label>
+                <input type="date" id="partenza" name="partenza" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="ospiti">Numero ospiti</label>
+              <select id="ospiti" name="ospiti">
+                <option value="1">1 persona</option>
+                <option value="2" selected>2 persone</option>
+                <option value="3">3 persone</option>
+                <option value="4">4 persone</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="messaggio">Messaggio (opzionale)</label>
+              <textarea id="messaggio" name="messaggio" placeholder="Richieste speciali, allergie, domande…"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-acqua" style="width:100%; justify-content:center;">
+              <i class="fa-solid fa-paper-plane"></i>
+              Invia Richiesta
+            </button>
+
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══════════════════════════════════════════════════ -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">Da <span>Felice</span></div>
+        <p class="footer-copy">© 2025 Affittacamere Da Felice – Equi Terme (MS), Toscana. P.IVA 00000000000</p>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Cookie Policy</a>
+          <a href="#contatti">Contatti</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating CTA -->
+  <div class="floating-cta" id="floatingCta">
+    <a href="#contatti">
+      <i class="fa-regular fa-calendar-check"></i>
+      Prenota ora
+    </a>
+  </div>
+
+  <!-- ═══ JAVASCRIPT ═══════════════════════════════════════════════ -->
+  <script>
+    // Header scroll effect
+    const header = document.getElementById('header');
+    const floatingCta = document.getElementById('floatingCta');
+
+    window.addEventListener('scroll', () => {
+      const scrolled = window.scrollY > 60;
+      header.classList.toggle('scrolled', scrolled);
+      floatingCta.classList.toggle('visible', window.scrollY > 500);
+    }, { passive: true });
+
+    // Hero bg animation
+    window.addEventListener('load', () => {
+      document.getElementById('heroBg').classList.add('loaded');
+    });
+
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Fade-in on scroll (IntersectionObserver)
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    fadeEls.forEach(el => observer.observe(el));
+
+    // Smooth form submit (UI only)
+    document.querySelector('form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('button[type=submit]');
+      btn.innerHTML = '<i class="fa-solid fa-circle-check"></i> Richiesta inviata!';
+      btn.style.background = '#2d8f5f';
+      btn.disabled = true;
+    });
+  </script>
+
+</body>
+</html>
