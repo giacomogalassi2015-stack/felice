@@ -19,870 +19,330 @@
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="it_IT" />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-
   <style>
     /* ─── CSS Variables ─────────────────────────────────────────── */
     :root {
-      --verde:      #2d5a27;
-      --verde-light:#4a7c44;
-      --verde-pale: #e8f0e7;
-      --acqua:      #4a9bb5;
-      --acqua-light:#6db8cf;
-      --acqua-pale: #dff0f6;
-      --pietra:     #6b6560;
-      --pietra-dark:#3e3a37;
-      --pietra-pale:#f2efec;
-      --avorio:     #faf8f4;
-      --bianco:     #ffffff;
-      --testo:      #2c2825;
-      --r: 0.6rem;
-      --shadow: 0 4px 24px rgba(45,90,39,0.12);
-      --transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+      --verde:       #2d5a27;
+      --verde-light: #4a7c44;
+      --verde-pale:  #e8f0e7;
+      --acqua:       #4a9bb5;
+      --acqua-light: #6db8cf;
+      --pietra:      #6b6560;
+      --pietra-dark: #3e3a37;
+      --avorio:      #faf8f4;
+      --bianco:      #ffffff;
+      --testo:       #2c2825;
+      --r:           0.6rem;
+      --shadow:      0 4px 24px rgba(45,90,39,0.12);
+      --transition:  all 0.35s cubic-bezier(0.4,0,0.2,1);
+      /* System font stacks — zero external requests */
+      --font-serif: 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+      --font-sans:  'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     }
 
     /* ─── Reset & Base ──────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; font-size: 16px; }
-
     body {
-      font-family: 'Lato', sans-serif;
-      color: var(--testo);
-      background: var(--avorio);
-      line-height: 1.7;
-      overflow-x: hidden;
+      font-family: var(--font-sans);
+      color: var(--testo); background: var(--avorio);
+      line-height: 1.7; overflow-x: hidden;
     }
-
     img { display: block; max-width: 100%; }
     a { text-decoration: none; color: inherit; }
-
-    h1, h2, h3, h4 {
-      font-family: 'Playfair Display', serif;
-      line-height: 1.25;
-    }
+    h1, h2, h3, h4 { font-family: var(--font-serif); line-height: 1.25; }
 
     /* ─── Utility ───────────────────────────────────────────────── */
-    .container {
-      width: min(90%, 1100px);
-      margin-inline: auto;
-    }
+    .container { width: min(90%, 1100px); margin-inline: auto; }
 
     .section-label {
-      display: inline-block;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--acqua);
-      margin-bottom: 0.6rem;
+      display: inline-block; font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--acqua); margin-bottom: 0.6rem;
     }
-
-    .section-title {
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      color: var(--verde);
-      margin-bottom: 1rem;
-    }
-
-    .section-subtitle {
-      font-size: 1.05rem;
-      color: var(--pietra);
-      max-width: 600px;
-    }
+    .section-title { font-size: clamp(1.8rem, 4vw, 2.6rem); color: var(--verde); margin-bottom: 1rem; }
+    .section-subtitle { font-size: 1.05rem; color: var(--pietra); max-width: 600px; }
 
     .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.85rem 2rem;
-      border-radius: 50px;
-      font-family: 'Lato', sans-serif;
-      font-weight: 700;
-      font-size: 0.95rem;
-      letter-spacing: 0.03em;
-      cursor: pointer;
-      border: 2px solid transparent;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.85rem 2rem; border-radius: 50px;
+      font-family: var(--font-sans); font-weight: 700; font-size: 0.95rem;
+      letter-spacing: 0.03em; cursor: pointer; border: 2px solid transparent;
       transition: var(--transition);
     }
-
-    .btn-primary {
-      background: var(--verde);
-      color: var(--bianco);
-    }
-    .btn-primary:hover {
-      background: var(--verde-light);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(45,90,39,0.3);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--verde);
-      border-color: var(--verde);
-    }
-    .btn-outline:hover {
-      background: var(--verde);
-      color: var(--bianco);
-      transform: translateY(-2px);
-    }
-
-    .btn-acqua {
-      background: var(--acqua);
-      color: var(--bianco);
-    }
+    .btn-acqua { background: var(--acqua); color: var(--bianco); }
     .btn-acqua:hover {
-      background: var(--acqua-light);
-      transform: translateY(-2px);
+      background: var(--acqua-light); transform: translateY(-2px);
       box-shadow: 0 8px 28px rgba(74,155,181,0.3);
     }
 
     /* ─── Decorative divider ────────────────────────────────────── */
-    .leaf-divider {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin: 1.5rem 0;
-    }
-    .leaf-divider::before,
-    .leaf-divider::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--verde-light));
-    }
-    .leaf-divider::after {
-      background: linear-gradient(to left, transparent, var(--verde-light));
-    }
-    .leaf-divider span {
-      color: var(--verde-light);
-      font-size: 1.2rem;
-    }
+    .leaf-divider { display: flex; align-items: center; gap: 1rem; margin: 1.5rem 0; }
+    .leaf-divider::before { content:''; flex:1; height:1px; background: linear-gradient(to right, transparent, var(--verde-light)); }
+    .leaf-divider::after  { content:''; flex:1; height:1px; background: linear-gradient(to left,  transparent, var(--verde-light)); }
+    .leaf-divider span { color: var(--verde-light); font-size: 1.2rem; }
+
+    /* ─── SVG icon helper ───────────────────────────────────────── */
+    .icon { display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .icon svg { width:1em; height:1em; fill:currentColor; }
 
     /* ─── Header / Nav ──────────────────────────────────────────── */
     #header {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 999;
-      padding: 1rem 0;
-      transition: var(--transition);
+      position: fixed; top:0; left:0; right:0;
+      z-index: 999; padding: 1rem 0; transition: var(--transition);
     }
-
     #header.scrolled {
-      background: rgba(250,248,244,0.96);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 2px 20px rgba(45,90,39,0.12);
-      padding: 0.6rem 0;
+      background: rgba(250,248,244,0.96); backdrop-filter: blur(10px);
+      box-shadow: 0 2px 20px rgba(45,90,39,0.12); padding: 0.6rem 0;
     }
+    nav { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
 
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--bianco);
-      transition: var(--transition);
-      line-height: 1;
-    }
-    .logo span {
-      color: var(--acqua-light);
-    }
-
+    .logo { font-family:var(--font-serif); font-size:1.6rem; font-weight:700; color:var(--bianco); transition:var(--transition); line-height:1; }
+    .logo span { color: var(--acqua-light); }
     #header.scrolled .logo { color: var(--verde); }
     #header.scrolled .logo span { color: var(--acqua); }
 
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 2rem;
-    }
-
+    .nav-links { display:flex; list-style:none; gap:2rem; }
     .nav-links a {
-      font-size: 0.9rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.9);
-      position: relative;
-      transition: var(--transition);
+      font-size:0.9rem; font-weight:700; letter-spacing:0.05em;
+      text-transform:uppercase; color:rgba(255,255,255,0.9);
+      position:relative; transition:var(--transition);
     }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -3px; left: 0;
-      width: 0; height: 2px;
-      background: var(--acqua-light);
-      transition: var(--transition);
-    }
-
-    .nav-links a:hover::after { width: 100%; }
-    .nav-links a:hover { color: var(--acqua-light); }
-
-    #header.scrolled .nav-links a { color: var(--pietra-dark); }
-    #header.scrolled .nav-links a:hover { color: var(--verde); }
-    #header.scrolled .nav-links a::after { background: var(--verde); }
+    .nav-links a::after { content:''; position:absolute; bottom:-3px; left:0; width:0; height:2px; background:var(--acqua-light); transition:var(--transition); }
+    .nav-links a:hover::after { width:100%; }
+    .nav-links a:hover { color:var(--acqua-light); }
+    #header.scrolled .nav-links a { color:var(--pietra-dark); }
+    #header.scrolled .nav-links a:hover { color:var(--verde); }
+    #header.scrolled .nav-links a::after { background:var(--verde); }
 
     /* Hamburger */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 4px;
-    }
-    .hamburger span {
-      display: block;
-      width: 26px; height: 2px;
-      background: var(--bianco);
-      border-radius: 2px;
-      transition: var(--transition);
-    }
-    #header.scrolled .hamburger span { background: var(--verde); }
-
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:4px; }
+    .hamburger span { display:block; width:26px; height:2px; background:var(--bianco); border-radius:2px; transition:var(--transition); }
+    #header.scrolled .hamburger span { background:var(--verde); }
+    .hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity:0; }
+    .hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
 
     .mobile-menu {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: var(--verde);
-      z-index: 998;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 2.5rem;
+      display:none; position:fixed; inset:0; background:var(--verde); z-index:998;
+      flex-direction:column; align-items:center; justify-content:center; gap:2.5rem;
     }
-    .mobile-menu.open { display: flex; }
-
-    .mobile-menu a {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      color: var(--bianco);
-      transition: var(--transition);
-    }
-    .mobile-menu a:hover { color: var(--acqua-light); }
+    .mobile-menu.open { display:flex; }
+    .mobile-menu a { font-family:var(--font-serif); font-size:2rem; color:var(--bianco); transition:var(--transition); }
+    .mobile-menu a:hover { color:var(--acqua-light); }
 
     /* ─── Hero ──────────────────────────────────────────────────── */
-    #hero {
-      position: relative;
-      min-height: 100svh;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-    }
-
+    #hero { position:relative; min-height:100svh; display:flex; align-items:center; overflow:hidden; }
     .hero-bg {
-      position: absolute;
-      inset: 0;
+      position:absolute; inset:0;
       background:
         linear-gradient(160deg, rgba(45,90,39,0.72) 0%, rgba(74,155,181,0.45) 100%),
         url('https://placehold.co/1600x1000/4a7c44/2d5a27?text=Equi+Terme+–+Lunigiana') center/cover no-repeat;
-      transform: scale(1.04);
-      transition: transform 8s ease-out;
+      transform:scale(1.04); transition:transform 8s ease-out;
     }
-    .hero-bg.loaded { transform: scale(1); }
-
-    /* Texture overlay */
+    .hero-bg.loaded { transform:scale(1); }
     .hero-bg::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      content:''; position:absolute; inset:0;
+      background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      padding: 8rem 0 6rem;
-    }
+    .hero-content { position:relative; z-index:2; padding:8rem 0 6rem; }
 
     .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(255,255,255,0.15);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255,255,255,0.3);
-      color: var(--bianco);
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      padding: 0.4rem 1rem;
-      border-radius: 50px;
-      margin-bottom: 1.5rem;
+      display:inline-flex; align-items:center; gap:0.5rem;
+      background:rgba(255,255,255,0.15); backdrop-filter:blur(8px);
+      border:1px solid rgba(255,255,255,0.3); color:var(--bianco);
+      font-size:0.8rem; font-weight:700; letter-spacing:0.15em;
+      text-transform:uppercase; padding:0.4rem 1rem; border-radius:50px; margin-bottom:1.5rem;
     }
-
     #hero h1 {
-      font-size: clamp(2.4rem, 6vw, 4.2rem);
-      color: var(--bianco);
-      max-width: 760px;
-      text-shadow: 0 2px 20px rgba(0,0,0,0.25);
-      margin-bottom: 1.2rem;
+      font-size:clamp(2.4rem,6vw,4.2rem); color:var(--bianco);
+      max-width:760px; text-shadow:0 2px 20px rgba(0,0,0,0.25); margin-bottom:1.2rem;
     }
-
-    #hero h1 em {
-      font-style: italic;
-      color: var(--acqua-light);
-    }
-
-    .hero-description {
-      font-size: 1.15rem;
-      color: rgba(255,255,255,0.88);
-      max-width: 500px;
-      margin-bottom: 2.5rem;
-      font-weight: 300;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      align-items: center;
-    }
+    #hero h1 em { font-style:italic; color:var(--acqua-light); }
+    .hero-description { font-size:1.15rem; color:rgba(255,255,255,0.88); max-width:500px; margin-bottom:2.5rem; font-weight:300; }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:1rem; align-items:center; }
 
     .hero-scroll {
-      position: absolute;
-      bottom: 2.5rem;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      color: rgba(255,255,255,0.6);
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      animation: bounce 2s infinite;
+      position:absolute; bottom:2.5rem; left:50%; transform:translateX(-50%);
+      display:flex; flex-direction:column; align-items:center; gap:0.5rem;
+      color:rgba(255,255,255,0.6); font-size:0.75rem; letter-spacing:0.1em;
+      text-transform:uppercase; animation:bounce 2s infinite;
     }
-    .hero-scroll i { font-size: 1rem; }
-
     @keyframes bounce {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(8px); }
+      0%,100% { transform:translateX(-50%) translateY(0); }
+      50%      { transform:translateX(-50%) translateY(8px); }
     }
 
     /* ─── Chi Siamo ─────────────────────────────────────────────── */
-    #chi-siamo {
-      padding: 6rem 0;
-      background: var(--avorio);
-    }
-
-    .chi-siamo-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    .chi-siamo-img {
-      position: relative;
-      border-radius: 1rem;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-    }
-
-    .chi-siamo-img img {
-      width: 100%;
-      aspect-ratio: 4/3;
-      object-fit: cover;
-    }
-
+    #chi-siamo { padding:6rem 0; background:var(--avorio); }
+    .chi-siamo-grid { display:grid; grid-template-columns:1fr; gap:3rem; align-items:center; }
+    .chi-siamo-img { position:relative; border-radius:1rem; overflow:hidden; box-shadow:var(--shadow); }
+    .chi-siamo-img img { width:100%; aspect-ratio:4/3; object-fit:cover; }
     .img-badge {
-      position: absolute;
-      bottom: 1.5rem; right: 1.5rem;
-      background: var(--verde);
-      color: var(--bianco);
-      padding: 0.8rem 1.4rem;
-      border-radius: var(--r);
-      font-family: 'Playfair Display', serif;
-      font-size: 0.9rem;
-      line-height: 1.3;
-      text-align: center;
+      position:absolute; bottom:1.5rem; right:1.5rem; background:var(--verde); color:var(--bianco);
+      padding:0.8rem 1.4rem; border-radius:var(--r); font-family:var(--font-serif);
+      font-size:0.9rem; line-height:1.3; text-align:center;
     }
-    .img-badge strong { display: block; font-size: 1.8rem; }
-
-    .chi-siamo-text p {
-      color: var(--pietra);
-      margin-bottom: 1rem;
-    }
-
-    .feature-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.7rem;
-      margin-top: 1.5rem;
-    }
-
-    .feature-list li {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      font-weight: 400;
-      color: var(--testo);
-    }
-
-    .feature-list li i {
-      color: var(--verde);
-      width: 1.2rem;
-      text-align: center;
-      flex-shrink: 0;
-    }
+    .img-badge strong { display:block; font-size:1.8rem; }
+    .chi-siamo-text p { color:var(--pietra); margin-bottom:1rem; }
+    .feature-list { list-style:none; display:flex; flex-direction:column; gap:0.7rem; margin-top:1.5rem; }
+    .feature-list li { display:flex; align-items:center; gap:0.8rem; font-weight:400; color:var(--testo); }
+    .feature-list li .icon { color:var(--verde); }
 
     /* ─── Camere & Servizi ──────────────────────────────────────── */
-    #camere {
-      padding: 6rem 0;
-      background: var(--verde-pale);
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 3.5rem;
-    }
-    .section-header .section-subtitle { margin-inline: auto; }
-
-    .camere-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-      margin-bottom: 3rem;
-    }
-
-    .camera-card {
-      background: var(--bianco);
-      border-radius: 1rem;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: var(--transition);
-    }
-    .camera-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 40px rgba(45,90,39,0.18);
-    }
-
-    .camera-img {
-      width: 100%;
-      aspect-ratio: 16/9;
-      object-fit: cover;
-    }
-
-    .camera-body {
-      padding: 1.5rem;
-    }
-
-    .camera-body h3 {
-      font-size: 1.25rem;
-      color: var(--verde);
-      margin-bottom: 0.5rem;
-    }
-
-    .camera-body p {
-      font-size: 0.95rem;
-      color: var(--pietra);
-      margin-bottom: 1rem;
-    }
-
-    .camera-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
+    #camere { padding:6rem 0; background:var(--verde-pale); }
+    .section-header { text-align:center; margin-bottom:3.5rem; }
+    .section-header .section-subtitle { margin-inline:auto; }
+    .camere-grid { display:grid; grid-template-columns:1fr; gap:1.5rem; margin-bottom:3rem; }
+    .camera-card { background:var(--bianco); border-radius:1rem; overflow:hidden; box-shadow:var(--shadow); transition:var(--transition); }
+    .camera-card:hover { transform:translateY(-6px); box-shadow:0 12px 40px rgba(45,90,39,0.18); }
+    .camera-img { width:100%; aspect-ratio:16/9; object-fit:cover; }
+    .camera-body { padding:1.5rem; }
+    .camera-body h3 { font-size:1.25rem; color:var(--verde); margin-bottom:0.5rem; }
+    .camera-body p { font-size:0.95rem; color:var(--pietra); margin-bottom:1rem; }
+    .camera-tags { display:flex; flex-wrap:wrap; gap:0.5rem; }
     .tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      background: var(--verde-pale);
-      color: var(--verde);
-      font-size: 0.78rem;
-      font-weight: 700;
-      padding: 0.3rem 0.75rem;
-      border-radius: 50px;
+      display:inline-flex; align-items:center; gap:0.35rem;
+      background:var(--verde-pale); color:var(--verde);
+      font-size:0.78rem; font-weight:700; padding:0.3rem 0.75rem; border-radius:50px;
     }
 
     /* Servizi strip */
-    .servizi-strip {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-    }
-
+    .servizi-strip { display:grid; grid-template-columns:repeat(2,1fr); gap:1rem; }
     .servizio-item {
-      background: var(--bianco);
-      border-radius: var(--r);
-      padding: 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      box-shadow: 0 2px 12px rgba(45,90,39,0.08);
-      transition: var(--transition);
+      background:var(--bianco); border-radius:var(--r); padding:1.25rem;
+      display:flex; align-items:center; gap:1rem;
+      box-shadow:0 2px 12px rgba(45,90,39,0.08); transition:var(--transition);
     }
-    .servizio-item:hover {
-      background: var(--verde);
-      color: var(--bianco);
-    }
-    .servizio-item:hover .servizio-icon { background: rgba(255,255,255,0.2); color: var(--bianco); }
-    .servizio-item:hover .servizio-label { color: var(--bianco); }
-
+    .servizio-item:hover { background:var(--verde); color:var(--bianco); }
+    .servizio-item:hover .servizio-icon { background:rgba(255,255,255,0.2); color:var(--bianco); }
+    .servizio-item:hover .servizio-label { color:var(--bianco); }
     .servizio-icon {
-      width: 2.8rem; height: 2.8rem;
-      background: var(--verde-pale);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--verde);
-      font-size: 1rem;
-      flex-shrink: 0;
-      transition: var(--transition);
+      width:2.8rem; height:2.8rem; background:var(--verde-pale); border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      color:var(--verde); flex-shrink:0; transition:var(--transition);
     }
-
-    .servizio-label {
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: var(--testo);
-      transition: var(--transition);
-    }
+    .servizio-label { font-size:0.9rem; font-weight:700; color:var(--testo); transition:var(--transition); }
 
     /* ─── Il Territorio ─────────────────────────────────────────── */
-    #territorio {
-      padding: 6rem 0;
-      background: var(--avorio);
-    }
-
-    .territorio-layout {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-
-    .attrazione-card {
-      position: relative;
-      border-radius: 1rem;
-      overflow: hidden;
-      aspect-ratio: 4/3;
-      cursor: pointer;
-      box-shadow: var(--shadow);
-    }
-
-    .attrazione-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s ease;
-    }
-
-    .attrazione-card:hover img { transform: scale(1.06); }
-
+    #territorio { padding:6rem 0; background:var(--avorio); }
+    .territorio-layout { display:grid; grid-template-columns:1fr; gap:2rem; }
+    .attrazione-card { position:relative; border-radius:1rem; overflow:hidden; aspect-ratio:4/3; cursor:pointer; box-shadow:var(--shadow); }
+    .attrazione-card img { width:100%; height:100%; object-fit:cover; transition:transform 0.6s ease; }
+    .attrazione-card:hover img { transform:scale(1.06); }
     .attrazione-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(45,90,39,0.85) 0%, transparent 55%);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 1.5rem;
+      position:absolute; inset:0;
+      background:linear-gradient(to top, rgba(45,90,39,0.85) 0%, transparent 55%);
+      display:flex; flex-direction:column; justify-content:flex-end; padding:1.5rem;
     }
-
-    .attrazione-overlay .tag {
-      background: var(--acqua);
-      color: var(--bianco);
-      align-self: flex-start;
-      margin-bottom: 0.6rem;
-    }
-
-    .attrazione-overlay h3 {
-      font-size: 1.35rem;
-      color: var(--bianco);
-      margin-bottom: 0.4rem;
-    }
-
-    .attrazione-overlay p {
-      font-size: 0.88rem;
-      color: rgba(255,255,255,0.8);
-    }
-
-    .attrazione-card.featured {
-      aspect-ratio: unset;
-      min-height: 400px;
-    }
+    .attrazione-overlay .tag { background:var(--acqua); color:var(--bianco); align-self:flex-start; margin-bottom:0.6rem; }
+    .attrazione-overlay h3 { font-size:1.35rem; color:var(--bianco); margin-bottom:0.4rem; }
+    .attrazione-overlay p  { font-size:0.88rem; color:rgba(255,255,255,0.8); }
+    .attrazione-card.featured { aspect-ratio:unset; min-height:400px; }
 
     /* ─── Contatti ──────────────────────────────────────────────── */
-    #contatti {
-      padding: 6rem 0;
-      background: var(--pietra-dark);
-      color: var(--bianco);
-    }
+    #contatti { padding:6rem 0; background:var(--pietra-dark); color:var(--bianco); }
+    #contatti .section-label { color:var(--acqua-light); }
+    #contatti .section-title { color:var(--bianco); }
+    .contatti-grid { display:grid; grid-template-columns:1fr; gap:3rem; }
+    .contatti-info h3 { font-size:1.2rem; color:var(--acqua-light); margin-bottom:1.5rem; }
+    .info-item { display:flex; align-items:flex-start; gap:1rem; margin-bottom:1.2rem; }
+    .info-item .icon { color:var(--acqua); margin-top:0.2rem; }
+    .info-item a { color:rgba(255,255,255,0.8); transition:var(--transition); }
+    .info-item a:hover { color:var(--acqua-light); }
+    .info-item span { color:rgba(255,255,255,0.8); font-size:0.95rem; }
 
-    #contatti .section-label { color: var(--acqua-light); }
-    #contatti .section-title { color: var(--bianco); }
-
-    .contatti-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 3rem;
-    }
-
-    .contatti-info h3 {
-      font-size: 1.2rem;
-      color: var(--acqua-light);
-      margin-bottom: 1.5rem;
-    }
-
-    .info-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      margin-bottom: 1.2rem;
-    }
-
-    .info-item i {
-      color: var(--acqua);
-      width: 1.2rem;
-      margin-top: 0.2rem;
-      flex-shrink: 0;
-    }
-
-    .info-item a {
-      color: rgba(255,255,255,0.8);
-      transition: var(--transition);
-    }
-    .info-item a:hover { color: var(--acqua-light); }
-
-    .info-item span {
-      color: rgba(255,255,255,0.8);
-      font-size: 0.95rem;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 0.8rem;
-      margin-top: 1.5rem;
-    }
-
+    .social-links { display:flex; gap:0.8rem; margin-top:1.5rem; }
     .social-links a {
-      width: 2.5rem; height: 2.5rem;
-      background: rgba(255,255,255,0.1);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--bianco);
-      font-size: 1rem;
-      transition: var(--transition);
+      width:2.5rem; height:2.5rem; background:rgba(255,255,255,0.1); border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      color:var(--bianco); transition:var(--transition);
     }
-    .social-links a:hover {
-      background: var(--acqua);
-      transform: translateY(-3px);
+    .social-links a:hover { background:var(--acqua); transform:translateY(-3px); }
+
+    /* Indirizzo statico — nessun iframe, zero richieste esterne */
+    .mappa-statica {
+      margin-top:2rem; background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.12); border-radius:var(--r);
+      padding:1.5rem; display:flex; flex-direction:column; gap:0.5rem;
     }
+    .mappa-statica strong.label { color:var(--acqua-light); font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; }
+    .mappa-statica p { color:rgba(255,255,255,0.75); font-size:0.93rem; line-height:1.7; }
+    .mappa-statica a {
+      display:inline-flex; align-items:center; gap:0.4rem;
+      color:var(--acqua-light); font-size:0.88rem; font-weight:700;
+      margin-top:0.5rem; transition:var(--transition);
+    }
+    .mappa-statica a:hover { color:var(--bianco); }
 
     /* Form */
-    .contatti-form {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 1rem;
-      padding: 2rem;
-    }
-
-    .contatti-form h3 {
-      font-size: 1.2rem;
-      color: var(--acqua-light);
-      margin-bottom: 1.5rem;
-    }
-
-    .form-group {
-      margin-bottom: 1.2rem;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.6);
-      margin-bottom: 0.4rem;
-    }
-
+    .contatti-form { background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:1rem; padding:2rem; }
+    .contatti-form h3 { font-size:1.2rem; color:var(--acqua-light); margin-bottom:1.5rem; }
+    .form-group { margin-bottom:1.2rem; }
+    .form-group label { display:block; font-size:0.82rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-bottom:0.4rem; }
     .form-group input,
     .form-group select,
     .form-group textarea {
-      width: 100%;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: var(--r);
-      padding: 0.75rem 1rem;
-      color: var(--bianco);
-      font-family: 'Lato', sans-serif;
-      font-size: 0.95rem;
-      transition: var(--transition);
-      outline: none;
+      width:100%; background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.15); border-radius:var(--r);
+      padding:0.75rem 1rem; color:var(--bianco);
+      font-family:var(--font-sans); font-size:0.95rem; transition:var(--transition); outline:none;
     }
-
     .form-group input:focus,
     .form-group select:focus,
-    .form-group textarea:focus {
-      border-color: var(--acqua);
-      background: rgba(74,155,181,0.1);
-      box-shadow: 0 0 0 3px rgba(74,155,181,0.15);
-    }
-
-    .form-group select option { background: var(--pietra-dark); }
-    .form-group textarea { resize: vertical; min-height: 120px; }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    /* Mappa placeholder */
-    .mappa-box {
-      margin-top: 2rem;
-      border-radius: var(--r);
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.12);
-    }
-
-    .mappa-box iframe {
-      width: 100%;
-      height: 280px;
-      border: none;
-      display: block;
-      filter: grayscale(30%) sepia(20%);
-    }
+    .form-group textarea:focus { border-color:var(--acqua); background:rgba(74,155,181,0.1); box-shadow:0 0 0 3px rgba(74,155,181,0.15); }
+    .form-group select option { background:var(--pietra-dark); }
+    .form-group textarea { resize:vertical; min-height:120px; }
+    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
 
     /* ─── Footer ────────────────────────────────────────────────── */
-    footer {
-      background: #1e1c19;
-      padding: 2rem 0;
-      text-align: center;
-    }
-
-    .footer-inner {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .footer-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      color: var(--bianco);
-      margin-bottom: 0.3rem;
-    }
-    .footer-logo span { color: var(--acqua); }
-
-    .footer-copy {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.4);
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 0.5rem;
-    }
-
-    .footer-links a {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.4);
-      transition: var(--transition);
-    }
-    .footer-links a:hover { color: var(--acqua-light); }
+    footer { background:#1e1c19; padding:2rem 0; text-align:center; }
+    .footer-inner { display:flex; flex-direction:column; align-items:center; gap:0.5rem; }
+    .footer-logo { font-family:var(--font-serif); font-size:1.3rem; color:var(--bianco); margin-bottom:0.3rem; }
+    .footer-logo span { color:var(--acqua); }
+    .footer-copy { font-size:0.8rem; color:rgba(255,255,255,0.4); }
+    .footer-links { display:flex; gap:1.5rem; flex-wrap:wrap; justify-content:center; margin-top:0.5rem; }
+    .footer-links a { font-size:0.8rem; color:rgba(255,255,255,0.4); transition:var(--transition); }
+    .footer-links a:hover { color:var(--acqua-light); }
 
     /* ─── Floating CTA ──────────────────────────────────────────── */
-    .floating-cta {
-      position: fixed;
-      bottom: 1.5rem; right: 1.5rem;
-      z-index: 990;
-      display: none;
-    }
-    .floating-cta.visible { display: block; }
-
+    .floating-cta { position:fixed; bottom:1.5rem; right:1.5rem; z-index:990; display:none; }
+    .floating-cta.visible { display:block; }
     .floating-cta a {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: var(--verde);
-      color: var(--bianco);
-      padding: 0.8rem 1.4rem;
-      border-radius: 50px;
-      font-weight: 700;
-      font-size: 0.88rem;
-      box-shadow: 0 6px 24px rgba(45,90,39,0.4);
-      transition: var(--transition);
+      display:flex; align-items:center; gap:0.6rem;
+      background:var(--verde); color:var(--bianco); padding:0.8rem 1.4rem;
+      border-radius:50px; font-weight:700; font-size:0.88rem;
+      box-shadow:0 6px 24px rgba(45,90,39,0.4); transition:var(--transition);
     }
-    .floating-cta a:hover {
-      background: var(--verde-light);
-      transform: translateY(-3px);
-    }
+    .floating-cta a:hover { background:var(--verde-light); transform:translateY(-3px); }
 
     /* ─── Responsive: Tablet ────────────────────────────────────── */
-    @media (min-width: 640px) {
-      .camere-grid { grid-template-columns: repeat(2, 1fr); }
-      .servizi-strip { grid-template-columns: repeat(3, 1fr); }
-      .chi-siamo-grid { grid-template-columns: 1fr 1fr; }
+    @media (min-width:640px) {
+      .camere-grid { grid-template-columns:repeat(2,1fr); }
+      .servizi-strip { grid-template-columns:repeat(2,1fr); }
+      .chi-siamo-grid { grid-template-columns:1fr 1fr; }
     }
 
     /* ─── Responsive: Desktop ───────────────────────────────────── */
-    @media (min-width: 900px) {
-      .hamburger { display: none !important; }
-      .nav-links { display: flex !important; }
-
-      .camere-grid { grid-template-columns: repeat(3, 1fr); }
-      .servizi-strip { grid-template-columns: repeat(4, 1fr); }
-
-      .territorio-layout {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto auto;
-      }
-      .attrazione-card.featured {
-        grid-row: span 2;
-      }
-
-      .contatti-grid { grid-template-columns: 1fr 1fr; }
-
-      .form-row { grid-template-columns: 1fr 1fr; }
+    @media (min-width:900px) {
+      .hamburger { display:none !important; }
+      .nav-links { display:flex !important; }
+      .camere-grid { grid-template-columns:repeat(3,1fr); }
+      .servizi-strip { grid-template-columns:repeat(4,1fr); }
+      .territorio-layout { grid-template-columns:1fr 1fr; grid-template-rows:auto auto; }
+      .attrazione-card.featured { grid-row:span 2; }
+      .contatti-grid { grid-template-columns:1fr 1fr; }
+      .form-row { grid-template-columns:1fr 1fr; }
     }
-
-    @media (max-width: 899px) {
-      .hamburger { display: flex; }
-      .nav-links { display: none; }
-      .form-row { grid-template-columns: 1fr; }
+    @media (max-width:899px) {
+      .hamburger { display:flex; }
+      .nav-links { display:none; }
+      .form-row { grid-template-columns:1fr; }
     }
 
     /* ─── Fade-in on scroll ─────────────────────────────────────── */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: none;
-    }
+    .fade-in { opacity:0; transform:translateY(30px); transition:opacity 0.7s ease, transform 0.7s ease; }
+    .fade-in.visible { opacity:1; transform:none; }
   </style>
 </head>
 <body>
@@ -892,14 +352,12 @@
     <div class="container">
       <nav>
         <a href="#hero" class="logo">Da <span>Felice</span></a>
-
         <ul class="nav-links">
           <li><a href="#chi-siamo">Chi Siamo</a></li>
           <li><a href="#camere">Camere</a></li>
           <li><a href="#territorio">Dintorni</a></li>
           <li><a href="#contatti">Contatti</a></li>
         </ul>
-
         <button class="hamburger" id="hamburger" aria-label="Apri menu">
           <span></span><span></span><span></span>
         </button>
@@ -918,33 +376,28 @@
   <!-- ═══ HERO ═════════════════════════════════════════════════════ -->
   <section id="hero">
     <div class="hero-bg" id="heroBg"></div>
-
     <div class="container hero-content">
       <div class="hero-badge">
-        <i class="fa-solid fa-location-dot"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
         Equi Terme · Lunigiana · Toscana
       </div>
-
       <h1>Il tuo rifugio nel cuore<br/>delle <em>Alpi Apuane</em></h1>
-
       <p class="hero-description">
-        Acque termali, grotte millenarie e boschi silenziosi ti aspettano. Noi ti aspettiamo con una stanza calda, colazioni genuine e un sorriso vero.
+        Acque termali, grotte millenarie e boschi silenziosi ti aspettano. Noi ti aspettiamo con una stanza calda e un sorriso vero.
       </p>
-
       <div class="hero-actions">
         <a href="#contatti" class="btn btn-acqua">
-          <i class="fa-regular fa-calendar-check"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3h-1V1h-2v2H8V1H6v2H5C3.9 3 3 3.9 3 5v16c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H5V8h14v13zM7 10h5v5H7z"/></svg>
           Richiedi Disponibilità
         </a>
-        <a href="#chi-siamo" class="btn" style="color:#fff; border-color:rgba(255,255,255,0.5);">
+        <a href="#chi-siamo" class="btn" style="color:#fff;border:2px solid rgba(255,255,255,0.5);">
           Scopri di più
         </a>
       </div>
     </div>
-
     <div class="hero-scroll">
       <span>Scorri</span>
-      <i class="fa-solid fa-chevron-down"></i>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
     </div>
   </section>
 
@@ -968,24 +421,35 @@
         <div class="chi-siamo-text fade-in">
           <span class="section-label">Chi Siamo</span>
           <h2 class="section-title">Un'accoglienza<br/>che sa di casa</h2>
-
           <div class="leaf-divider"><span>❧</span></div>
-
           <p>
             Benvenuti all'Affittacamere <strong>Da Felice</strong>, un piccolo angolo di pace nel borgo antico di Equi Terme, incastonato tra i boschi lussureggianti della Lunigiana e le vette delle Alpi Apuane.
           </p>
           <p>
-            Siamo una famiglia che da oltre vent'anni apre le porte di casa propria agli ospiti che cercano qualcosa di autentico: non solo un letto, ma un'esperienza vera, fatta di profumi di cucina casalinga, silenzi pieni di natura e chiacchierate davanti a un bicchiere di vino locale.
+            Siamo una famiglia che da oltre vent'anni apre le porte di casa propria agli ospiti che cercano qualcosa di autentico: non solo un letto, ma un'esperienza vera, fatta di silenzi pieni di natura e chiacchierate davanti a un bicchiere di vino locale.
           </p>
           <p>
             Qui non troverete freddezza alberghiera. Troverete Felice — e con lui, tutto il calore di chi considera ogni ospite un amico.
           </p>
-
           <ul class="feature-list">
-            <li><i class="fa-solid fa-check-circle"></i> Colazione con prodotti locali e stagionali</li>
-            <li><i class="fa-solid fa-check-circle"></i> Consiglio personalizzato su escursioni e itinerari</li>
-            <li><i class="fa-solid fa-check-circle"></i> Parcheggio gratuito e Wi-Fi incluso</li>
-            <li><i class="fa-solid fa-check-circle"></i> Check-in flessibile su richiesta</li>
+            <li>
+              <span class="icon" style="color:var(--verde);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+              </span>
+              Consiglio personalizzato su escursioni e itinerari
+            </li>
+            <li>
+              <span class="icon" style="color:var(--verde);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+              </span>
+              Parcheggio gratuito nelle vicinanze
+            </li>
+            <li>
+              <span class="icon" style="color:var(--verde);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+              </span>
+              Check-in flessibile su richiesta
+            </li>
           </ul>
         </div>
 
@@ -1007,95 +471,90 @@
 
         <!-- Camera 1 -->
         <div class="camera-card fade-in">
-          <img
-            class="camera-img"
-            src="https://placehold.co/600x338/2d5a27/ffffff?text=Camera+Bosco"
-            alt="Camera Bosco con vista sulla foresta"
-            loading="lazy"
-          />
+          <img class="camera-img" src="https://placehold.co/600x338/2d5a27/ffffff?text=Camera+Bosco" alt="Camera Bosco con vista sulla foresta" loading="lazy" />
           <div class="camera-body">
             <h3>Camera Bosco</h3>
             <p>Svegliarsi con la vista sul bosco di castagni. Silenziosa, avvolta nel verde, ideale per chi cerca pace profonda.</p>
             <div class="camera-tags">
-              <span class="tag"><i class="fa-solid fa-tv"></i> TV</span>
-              <span class="tag"><i class="fa-solid fa-shower"></i> Bagno privato</span>
-              <span class="tag"><i class="fa-solid fa-mountain"></i> Vista foresta</span>
+              <span class="tag">
+                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/></svg>
+                TV
+              </span>
+              <span class="tag">
+                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M9.5 6.5v3h-3v-3h3M11 5H5v6h6V5zm-1.5 9.5v3h-3v-3h3M11 13H5v6h6v-6zm6.5-6.5v3h-3v-3h3M19 5h-6v6h6V5z"/></svg>
+                Bagno privato
+              </span>
+              <span class="tag">Vista foresta</span>
             </div>
           </div>
         </div>
 
         <!-- Camera 2 -->
         <div class="camera-card fade-in">
-          <img
-            class="camera-img"
-            src="https://placehold.co/600x338/4a9bb5/ffffff?text=Camera+Acqua"
-            alt="Camera Acqua con vista sulle terme di Equi"
-            loading="lazy"
-          />
+          <img class="camera-img" src="https://placehold.co/600x338/4a9bb5/ffffff?text=Camera+Acqua" alt="Camera Acqua con vista sul torrente" loading="lazy" />
           <div class="camera-body">
             <h3>Camera Acqua</h3>
             <p>Affacciata sul torrente Civasola, questa camera porta il suono rilassante dell'acqua direttamente nella tua stanza.</p>
             <div class="camera-tags">
-              <span class="tag"><i class="fa-solid fa-tv"></i> TV</span>
-              <span class="tag"><i class="fa-solid fa-shower"></i> Bagno privato</span>
-              <span class="tag"><i class="fa-solid fa-water"></i> Vista torrente</span>
+              <span class="tag">
+                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/></svg>
+                TV
+              </span>
+              <span class="tag">
+                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M9.5 6.5v3h-3v-3h3M11 5H5v6h6V5zm-1.5 9.5v3h-3v-3h3M11 13H5v6h6v-6zm6.5-6.5v3h-3v-3h3M19 5h-6v6h6V5z"/></svg>
+                Bagno privato
+              </span>
+              <span class="tag">Vista torrente</span>
             </div>
           </div>
         </div>
 
         <!-- Camera 3 -->
         <div class="camera-card fade-in">
-          <img
-            class="camera-img"
-            src="https://placehold.co/600x338/6b6560/ffffff?text=Camera+Pietra"
-            alt="Camera Pietra con soffitto in pietra originale del borgo"
-            loading="lazy"
-          />
+          <img class="camera-img" src="https://placehold.co/600x338/6b6560/ffffff?text=Camera+Pietra" alt="Camera Pietra con muri in pietra del borgo" loading="lazy" />
           <div class="camera-body">
             <h3>Camera Pietra</h3>
             <p>Le mura in pietra viva del borgo storico raccontano secoli di storia. Il rustico incontro con il comfort moderno.</p>
             <div class="camera-tags">
-              <span class="tag"><i class="fa-solid fa-tv"></i> TV</span>
-              <span class="tag"><i class="fa-solid fa-shower"></i> Bagno privato</span>
-              <span class="tag"><i class="fa-solid fa-mountain-sun"></i> Vista Apuane</span>
+              <span class="tag">
+                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/></svg>
+                TV
+              </span>
+              <span class="tag">
+                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M9.5 6.5v3h-3v-3h3M11 5H5v6h6V5zm-1.5 9.5v3h-3v-3h3M11 13H5v6h6v-6zm6.5-6.5v3h-3v-3h3M19 5h-6v6h6V5z"/></svg>
+                Bagno privato
+              </span>
+              <span class="tag">Vista Apuane</span>
             </div>
           </div>
         </div>
 
       </div>
 
-      <!-- Servizi strip -->
+      <!-- Servizi strip — 4 rimasti dopo rimozioni -->
       <div class="servizi-strip fade-in">
         <div class="servizio-item">
-          <div class="servizio-icon"><i class="fa-solid fa-wifi"></i></div>
-          <span class="servizio-label">Wi-Fi Gratuito</span>
-        </div>
-        <div class="servizio-item">
-          <div class="servizio-icon"><i class="fa-solid fa-mug-hot"></i></div>
-          <span class="servizio-label">Colazione inclusa</span>
-        </div>
-        <div class="servizio-item">
-          <div class="servizio-icon"><i class="fa-solid fa-square-parking"></i></div>
+          <div class="servizio-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2.05V4.05C17.39 4.59 20.5 8.58 19.96 12.97C19.5 16.61 16.64 19.5 13 19.93V21.93C18.5 21.38 22.5 16.5 21.95 11C21.5 6.25 17.73 2.5 13 2.05M11 2.06C9.05 2.25 7.19 3 5.67 4.26L7.1 5.74C8.22 4.84 9.57 4.26 11 4.06V2.06M4.26 5.67C3 7.19 2.25 9.04 2.05 11H4.05C4.24 9.58 4.8 8.23 5.69 7.1L4.26 5.67M2.06 13C2.26 14.96 3.03 16.81 4.27 18.33L5.69 16.9C4.81 15.77 4.24 14.42 4.06 13H2.06M7.1 18.37L5.67 19.74C7.18 21 9.04 21.79 11 22V20C9.58 19.82 8.23 19.25 7.1 18.37z"/></svg>
+          </div>
           <span class="servizio-label">Parcheggio</span>
         </div>
         <div class="servizio-item">
-          <div class="servizio-icon"><i class="fa-solid fa-paw"></i></div>
+          <div class="servizio-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M14 6l-1-2H5v17h2v-7h5l1 2h7V6h-6zm4 8h-4l-1-2H7V6h5l1 2h5v6z"/></svg>
+          </div>
           <span class="servizio-label">Animali ammessi</span>
         </div>
         <div class="servizio-item">
-          <div class="servizio-icon"><i class="fa-solid fa-snowflake"></i></div>
-          <span class="servizio-label">Aria condizionata</span>
-        </div>
-        <div class="servizio-item">
-          <div class="servizio-icon"><i class="fa-solid fa-shirt"></i></div>
-          <span class="servizio-label">Cambio biancheria</span>
-        </div>
-        <div class="servizio-item">
-          <div class="servizio-icon"><i class="fa-solid fa-map"></i></div>
+          <div class="servizio-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11.5 2C6.81 2 3 5.81 3 10.5S6.81 19 11.5 19h.5v3c4.86-2.34 8-7 8-11.5C20 5.81 16.19 2 11.5 2zm1 14.5h-2v-2h2v2zm0-4h-2c0-3.25 3-3 3-5 0-1.1-.9-2-2-2s-2 .9-2 2h-2c0-2.21 1.79-4 4-4s4 1.79 4 4c0 2.5-3 2.75-3 5z"/></svg>
+          </div>
           <span class="servizio-label">Info escursioni</span>
         </div>
         <div class="servizio-item">
-          <div class="servizio-icon"><i class="fa-solid fa-clock"></i></div>
+          <div class="servizio-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+          </div>
           <span class="servizio-label">Check-in flessibile</span>
         </div>
       </div>
@@ -1115,44 +574,29 @@
 
       <div class="territorio-layout">
 
-        <!-- Featured -->
         <div class="attrazione-card featured fade-in">
-          <img
-            src="https://placehold.co/700x700/1a3d18/8bc34a?text=Grotte+di+Equi"
-            alt="Le suggestive Grotte di Equi Terme in Lunigiana"
-            loading="lazy"
-          />
+          <img src="https://placehold.co/700x700/1a3d18/8bc34a?text=Grotte+di+Equi" alt="Le suggestive Grotte di Equi Terme in Lunigiana" loading="lazy" />
           <div class="attrazione-overlay">
-            <span class="tag"><i class="fa-solid fa-star"></i> Da non perdere</span>
+            <span class="tag">★ Da non perdere</span>
             <h3>Grotte di Equi</h3>
             <p>Un viaggio nel sottosuolo tra stalattiti millenarie, corsi d'acqua sotterranei e meraviglie geologiche a due passi dall'affittacamere.</p>
           </div>
         </div>
 
-        <!-- Card 2 -->
         <div class="attrazione-card fade-in">
-          <img
-            src="https://placehold.co/600x400/4a9bb5/ffffff?text=Terme+di+Equi"
-            alt="Le acque termali di Equi Terme per il benessere totale"
-            loading="lazy"
-          />
+          <img src="https://placehold.co/600x400/4a9bb5/ffffff?text=Terme+di+Equi" alt="Le acque termali di Equi Terme per il benessere totale" loading="lazy" />
           <div class="attrazione-overlay">
-            <span class="tag"><i class="fa-solid fa-hot-tub-person"></i> Benessere</span>
+            <span class="tag">Benessere</span>
             <h3>Terme di Equi</h3>
             <p>Acque sulfuree naturali dalle proprietà terapeutiche, perfette per rigenerare corpo e mente dopo una giornata in montagna.</p>
           </div>
         </div>
 
-        <!-- Card 3 -->
         <div class="attrazione-card fade-in">
-          <img
-            src="https://placehold.co/600x400/2d5a27/c8e6c9?text=Alpi+Apuane"
-            alt="Trekking e natura nel Parco delle Alpi Apuane"
-            loading="lazy"
-          />
+          <img src="https://placehold.co/600x400/2d5a27/c8e6c9?text=Alpi+Apuane" alt="Trekking e natura nel Parco delle Alpi Apuane" loading="lazy" />
           <div class="attrazione-overlay">
-            <span class="tag"><i class="fa-solid fa-person-hiking"></i> Outdoor</span>
-            <h3>Alpi Apuane & Trekking</h3>
+            <span class="tag">Outdoor</span>
+            <h3>Alpi Apuane &amp; Trekking</h3>
             <p>Il Parco Regionale delle Alpi Apuane offre sentieri per tutti i livelli, con panorami che spaziano dal mare alle cime innevate.</p>
           </div>
         </div>
@@ -1169,7 +613,7 @@
       <div class="section-header fade-in">
         <span class="section-label">Contatti</span>
         <h2 class="section-title">Vieni a trovarci</h2>
-        <p class="section-subtitle" style="color:rgba(255,255,255,0.65); margin-inline:auto;">Scrivi o chiama: saremo felici di rispondere a ogni tua domanda e aiutarti a pianificare il soggiorno perfetto.</p>
+        <p class="section-subtitle" style="color:rgba(255,255,255,0.65);margin-inline:auto;">Scrivi o chiama: saremo felici di rispondere a ogni tua domanda e aiutarti a pianificare il soggiorno perfetto.</p>
       </div>
 
       <div class="contatti-grid">
@@ -1179,52 +623,70 @@
           <h3>Dove siamo</h3>
 
           <div class="info-item">
-            <i class="fa-solid fa-location-dot"></i>
+            <span class="icon" style="color:var(--acqua);margin-top:0.15rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            </span>
             <span>Via delle Terme, 12 — 54022 Equi Terme (MS), Toscana, Italia</span>
           </div>
 
           <div class="info-item">
-            <i class="fa-solid fa-phone"></i>
+            <span class="icon" style="color:var(--acqua);margin-top:0.15rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            </span>
             <a href="tel:+390187123456">+39 0187 123 456</a>
           </div>
 
           <div class="info-item">
-            <i class="fa-brands fa-whatsapp"></i>
+            <span class="icon" style="color:var(--acqua);margin-top:0.15rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16.75 13.96c.25.13.41.2.46.3.06.11.04.61-.21 1.18-.2.56-1.24 1.1-1.7 1.12-.46.02-.47.36-2.96-.73-2.49-1.09-3.99-3.75-4.11-3.92-.12-.17-.96-1.38-.92-2.61.05-1.22.69-1.8.95-2.04.24-.22.51-.29.68-.26h.47c.15 0 .36-.06.55.45l.69 1.87c.06.13.1.28.01.44l-.27.41-.39.42c-.12.12-.26.25-.12.5.15.26.65 1.09 1.39 1.95.76.89 1.31 1.2 1.63 1.35.3.15.48.13.66-.08l.39-.47c.26-.31.51-.24.85-.15l1.66.87z"/><path d="M11.93 2C5.79 2 .87 4.93.87 11.07c0 2.09.61 4.03 1.64 5.67L.5 22l5.39-1.67c1.58.86 3.4 1.35 5.33 1.35 6.14 0 11.07-4.93 11.07-11.07C22.29 4.52 17.66 2 11.93 2zm0 20.15c-1.78 0-3.44-.48-4.86-1.32l-.35-.21-3.6 1.11 1.07-3.52-.23-.36C3.04 16.65 2.5 14.91 2.5 13.07c0-5.21 4.24-9.45 9.43-9.45 5.2 0 9.44 4.24 9.44 9.44 0 5.21-4.24 9.44-9.44 9.44v.01z"/></svg>
+            </span>
             <a href="https://wa.me/393331234567">+39 333 123 4567 (WhatsApp)</a>
           </div>
 
           <div class="info-item">
-            <i class="fa-solid fa-envelope"></i>
+            <span class="icon" style="color:var(--acqua);margin-top:0.15rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </span>
             <a href="mailto:info@dafelice-equiterme.it">info@dafelice-equiterme.it</a>
           </div>
 
           <div class="info-item">
-            <i class="fa-solid fa-clock"></i>
+            <span class="icon" style="color:var(--acqua);margin-top:0.15rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+            </span>
             <span>Check-in: 14:00–20:00 &nbsp;|&nbsp; Check-out: entro le 11:00</span>
           </div>
 
           <div class="social-links">
-            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" aria-label="TripAdvisor"><i class="fa-brands fa-tripadvisor"></i></a>
+            <a href="#" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg>
+            </a>
           </div>
 
-          <!-- Mappa placeholder -->
-          <div class="mappa-box">
-            <iframe
-              src="https://www.openstreetmap.org/export/embed.html?bbox=10.09,44.17,10.11,44.19&layer=mapnik&marker=44.18,10.10"
-              title="Mappa Equi Terme"
-              loading="lazy"
-            ></iframe>
+          <!-- Indirizzo + indicazioni stradali — nessun iframe, zero cookie -->
+          <div class="mappa-statica">
+            <strong class="label">Come raggiungerci</strong>
+            <p>
+              Via delle Terme, 12 — 54022 Equi Terme (MS)<br/><br/>
+              <strong style="color:rgba(255,255,255,0.45);font-size:0.78rem;font-family:var(--font-sans);">IN AUTO</strong><br/>
+              A15 La Spezia–Parma, uscita Aulla. Seguire indicazioni per Equi Terme (≈ 20 min).<br/><br/>
+              <strong style="color:rgba(255,255,255,0.45);font-size:0.78rem;font-family:var(--font-sans);">IN TRENO</strong><br/>
+              Stazione di Aulla Lunigiana (linea La Spezia–Parma), poi bus locale o taxi.
+            </p>
+            <a href="https://www.openstreetmap.org/?mlat=44.18&amp;mlon=10.10#map=15/44.18/10.10" target="_blank" rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              Apri su mappa (link esterno)
+            </a>
           </div>
         </div>
 
         <!-- Modulo -->
         <div class="contatti-form fade-in">
           <h3>Richiedi disponibilità</h3>
-
           <form action="#" method="POST" novalidate>
-
             <div class="form-row">
               <div class="form-group">
                 <label for="nome">Nome</label>
@@ -1235,17 +697,14 @@
                 <input type="text" id="cognome" name="cognome" placeholder="Rossi" required />
               </div>
             </div>
-
             <div class="form-group">
               <label for="email">Email</label>
               <input type="email" id="email" name="email" placeholder="mario@esempio.it" required />
             </div>
-
             <div class="form-group">
               <label for="telefono">Telefono (opzionale)</label>
               <input type="tel" id="telefono" name="telefono" placeholder="+39 333 000 0000" />
             </div>
-
             <div class="form-row">
               <div class="form-group">
                 <label for="arrivo">Data arrivo</label>
@@ -1256,7 +715,6 @@
                 <input type="date" id="partenza" name="partenza" required />
               </div>
             </div>
-
             <div class="form-group">
               <label for="ospiti">Numero ospiti</label>
               <select id="ospiti" name="ospiti">
@@ -1266,17 +724,14 @@
                 <option value="4">4 persone</option>
               </select>
             </div>
-
             <div class="form-group">
               <label for="messaggio">Messaggio (opzionale)</label>
-              <textarea id="messaggio" name="messaggio" placeholder="Richieste speciali, allergie, domande…"></textarea>
+              <textarea id="messaggio" name="messaggio" placeholder="Richieste speciali, domande…"></textarea>
             </div>
-
-            <button type="submit" class="btn btn-acqua" style="width:100%; justify-content:center;">
-              <i class="fa-solid fa-paper-plane"></i>
+            <button type="submit" class="btn btn-acqua" style="width:100%;justify-content:center;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
               Invia Richiesta
             </button>
-
           </form>
         </div>
 
@@ -1292,7 +747,6 @@
         <p class="footer-copy">© 2025 Affittacamere Da Felice – Equi Terme (MS), Toscana. P.IVA 00000000000</p>
         <div class="footer-links">
           <a href="#">Privacy Policy</a>
-          <a href="#">Cookie Policy</a>
           <a href="#contatti">Contatti</a>
         </div>
       </div>
@@ -1302,38 +756,30 @@
   <!-- Floating CTA -->
   <div class="floating-cta" id="floatingCta">
     <a href="#contatti">
-      <i class="fa-regular fa-calendar-check"></i>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3h-1V1h-2v2H8V1H6v2H5C3.9 3 3 3.9 3 5v16c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H5V8h14v13zM7 10h5v5H7z"/></svg>
       Prenota ora
     </a>
   </div>
 
-  <!-- ═══ JAVASCRIPT ═══════════════════════════════════════════════ -->
   <script>
-    // Header scroll effect
-    const header = document.getElementById('header');
+    const header     = document.getElementById('header');
     const floatingCta = document.getElementById('floatingCta');
-
     window.addEventListener('scroll', () => {
-      const scrolled = window.scrollY > 60;
-      header.classList.toggle('scrolled', scrolled);
+      header.classList.toggle('scrolled', window.scrollY > 60);
       floatingCta.classList.toggle('visible', window.scrollY > 500);
     }, { passive: true });
 
-    // Hero bg animation
     window.addEventListener('load', () => {
       document.getElementById('heroBg').classList.add('loaded');
     });
 
-    // Hamburger menu
-    const hamburger = document.getElementById('hamburger');
+    const hamburger  = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
-
     hamburger.addEventListener('click', () => {
       const open = mobileMenu.classList.toggle('open');
       hamburger.classList.toggle('open', open);
       document.body.style.overflow = open ? 'hidden' : '';
     });
-
     document.querySelectorAll('.mobile-link').forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.remove('open');
@@ -1342,8 +788,6 @@
       });
     });
 
-    // Fade-in on scroll (IntersectionObserver)
-    const fadeEls = document.querySelectorAll('.fade-in');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
         if (entry.isIntersecting) {
@@ -1352,14 +796,12 @@
         }
       });
     }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-    fadeEls.forEach(el => observer.observe(el));
-
-    // Smooth form submit (UI only)
     document.querySelector('form').addEventListener('submit', function(e) {
       e.preventDefault();
       const btn = this.querySelector('button[type=submit]');
-      btn.innerHTML = '<i class="fa-solid fa-circle-check"></i> Richiesta inviata!';
+      btn.innerHTML = '✓ Richiesta inviata!';
       btn.style.background = '#2d8f5f';
       btn.disabled = true;
     });
